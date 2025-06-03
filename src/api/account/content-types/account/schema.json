@@ -1,0 +1,95 @@
+{
+  "kind": "collectionType",
+  "collectionName": "accounts",
+  "info": {
+    "singularName": "account",
+    "pluralName": "accounts",
+    "displayName": "Account",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "version": {
+      "type": "enumeration",
+      "enum": [
+        "gamota",
+        "japan",
+        "global"
+      ]
+    },
+    "price": {
+      "type": "biginteger"
+    },
+    "vipLevel": {
+      "type": "integer"
+    },
+    "kills": {
+      "type": "integer"
+    },
+    "speed": {
+      "type": "integer"
+    },
+    "goldenHeads": {
+      "type": "integer"
+    },
+    "equipment": {
+      "type": "integer"
+    },
+    "emblem": {
+      "type": "string"
+    },
+    "tattoo": {
+      "type": "string"
+    },
+    "tickets": {
+      "type": "integer"
+    },
+    "resources": {
+      "type": "string"
+    },
+    "actionPoints": {
+      "type": "integer"
+    },
+    "commander": {
+      "type": "blocks"
+    },
+    "legendaryHouse": {
+      "type": "blocks"
+    },
+    "saleStatus": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "sale",
+        "cancel",
+        "available"
+      ]
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "thumbnail": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
