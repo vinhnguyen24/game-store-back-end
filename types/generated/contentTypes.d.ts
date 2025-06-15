@@ -386,6 +386,10 @@ export interface ApiAccountAccount extends Struct.CollectionTypeSchema {
   };
   attributes: {
     actionPoints: Schema.Attribute.Integer;
+    city_themes: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::city-theme.city-theme'
+    >;
     commander: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -398,13 +402,16 @@ export interface ApiAccountAccount extends Struct.CollectionTypeSchema {
       true
     >;
     kills: Schema.Attribute.Integer;
-    legendaryHouse: Schema.Attribute.Blocks;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::account.account'
     > &
       Schema.Attribute.Private;
+    owner: Schema.Attribute.Relation<
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
     price: Schema.Attribute.BigInteger;
     publishedAt: Schema.Attribute.DateTime;
     resources: Schema.Attribute.String;
@@ -421,6 +428,85 @@ export interface ApiAccountAccount extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     version: Schema.Attribute.Enumeration<['gamota', 'japan', 'global']>;
     vipLevel: Schema.Attribute.Integer;
+  };
+}
+
+export interface ApiCityThemeCityTheme extends Struct.CollectionTypeSchema {
+  collectionName: 'city_themes';
+  info: {
+    description: '';
+    displayName: 'City theme';
+    pluralName: 'city-themes';
+    singularName: 'city-theme';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    account: Schema.Attribute.Relation<'manyToOne', 'api::account.account'>;
+    buff: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::city-theme.city-theme'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    type: Schema.Attribute.Enumeration<
+      ['mix', 'archer', 'cavalry', 'infantry', 'ultility']
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiNegotiationNegotiation extends Struct.CollectionTypeSchema {
+  collectionName: 'negotiations';
+  info: {
+    displayName: 'negotiation ';
+    pluralName: 'negotiations';
+    singularName: 'negotiation';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    account: Schema.Attribute.Relation<'oneToOne', 'api::account.account'>;
+    buyer: Schema.Attribute.Relation<
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    buyerZalo: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    finalPrice: Schema.Attribute.BigInteger;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::negotiation.negotiation'
+    > &
+      Schema.Attribute.Private;
+    offeredPrice: Schema.Attribute.BigInteger;
+    originalPrice: Schema.Attribute.BigInteger;
+    publishedAt: Schema.Attribute.DateTime;
+    seller: Schema.Attribute.Relation<
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    statusTransaction: Schema.Attribute.Enumeration<
+      ['pending', 'countered', 'accepted', 'rejected']
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    zaloGroupLink: Schema.Attribute.String;
   };
 }
 
@@ -978,6 +1064,8 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::account.account': ApiAccountAccount;
+      'api::city-theme.city-theme': ApiCityThemeCityTheme;
+      'api::negotiation.negotiation': ApiNegotiationNegotiation;
       'api::transaction.transaction': ApiTransactionTransaction;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

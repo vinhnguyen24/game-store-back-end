@@ -55,9 +55,6 @@
     "commander": {
       "type": "blocks"
     },
-    "legendaryHouse": {
-      "type": "blocks"
-    },
     "saleStatus": {
       "type": "enumeration",
       "enum": [
@@ -82,14 +79,26 @@
       "type": "string"
     },
     "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "owner": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "city_themes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::city-theme.city-theme",
+      "mappedBy": "account"
     }
   }
 }

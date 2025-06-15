@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "city_themes",
+  "info": {
+    "singularName": "city-theme",
+    "pluralName": "city-themes",
+    "displayName": "City theme",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "mix",
+        "archer",
+        "cavalry",
+        "infantry",
+        "ultility"
+      ]
+    },
+    "buff": {
+      "type": "string"
+    },
+    "account": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::account.account",
+      "inversedBy": "city_themes"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "negotiations",
+  "info": {
+    "singularName": "negotiation",
+    "pluralName": "negotiations",
+    "displayName": "negotiation "
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "buyerZalo": {
+      "type": "string"
+    },
+    "buyer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "seller": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "account": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::account.account"
+    },
+    "originalPrice": {
+      "type": "biginteger"
+    },
+    "offeredPrice": {
+      "type": "biginteger"
+    },
+    "finalPrice": {
+      "type": "biginteger"
+    },
+    "statusTransaction": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "countered",
+        "accepted",
+        "rejected"
+      ]
+    },
+    "zaloGroupLink": {
+      "type": "string"
+    }
+  }
+}
