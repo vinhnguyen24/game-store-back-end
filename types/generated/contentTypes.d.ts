@@ -382,7 +382,7 @@ export interface ApiAccountAccount extends Struct.CollectionTypeSchema {
     singularName: 'account';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     actionPoints: Schema.Attribute.Integer;
@@ -390,17 +390,19 @@ export interface ApiAccountAccount extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::city-theme.city-theme'
     >;
-    commander: Schema.Attribute.Blocks;
+    commander: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     emblem: Schema.Attribute.String;
     equipment: Schema.Attribute.Integer;
+    equipment_emblems: Schema.Attribute.String;
     goldenHeads: Schema.Attribute.Integer;
     images: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
+    keyRally: Schema.Attribute.Boolean;
     kills: Schema.Attribute.Integer;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -408,10 +410,6 @@ export interface ApiAccountAccount extends Struct.CollectionTypeSchema {
       'api::account.account'
     > &
       Schema.Attribute.Private;
-    owner: Schema.Attribute.Relation<
-      'oneToOne',
-      'plugin::users-permissions.user'
-    >;
     price: Schema.Attribute.BigInteger;
     publishedAt: Schema.Attribute.DateTime;
     resources: Schema.Attribute.String;
@@ -419,6 +417,7 @@ export interface ApiAccountAccount extends Struct.CollectionTypeSchema {
       ['pending', 'sale', 'cancel', 'available']
     >;
     speed: Schema.Attribute.Integer;
+    talent: Schema.Attribute.Integer;
     tattoo: Schema.Attribute.String;
     thumbnail: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     tickets: Schema.Attribute.Integer;
@@ -426,6 +425,10 @@ export interface ApiAccountAccount extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    user: Schema.Attribute.Relation<
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
     version: Schema.Attribute.Enumeration<['gamota', 'japan', 'global']>;
     vipLevel: Schema.Attribute.Integer;
   };
@@ -440,7 +443,7 @@ export interface ApiCityThemeCityTheme extends Struct.CollectionTypeSchema {
     singularName: 'city-theme';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     account: Schema.Attribute.Relation<'manyToOne', 'api::account.account'>;
@@ -1010,6 +1013,7 @@ export interface PluginUsersPermissionsUser
     draftAndPublish: false;
   };
   attributes: {
+    accounts: Schema.Attribute.Relation<'oneToMany', 'api::account.account'>;
     avatar: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     blocked: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     confirmationToken: Schema.Attribute.String & Schema.Attribute.Private;
