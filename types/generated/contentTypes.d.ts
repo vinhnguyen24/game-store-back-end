@@ -416,6 +416,7 @@ export interface ApiAccountAccount extends Struct.CollectionTypeSchema {
     saleStatus: Schema.Attribute.Enumeration<
       ['pending', 'sale', 'cancel', 'available']
     >;
+    sellerName: Schema.Attribute.String;
     speed: Schema.Attribute.Integer;
     talent: Schema.Attribute.Integer;
     tattoo: Schema.Attribute.String;

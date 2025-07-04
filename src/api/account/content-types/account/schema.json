@@ -109,6 +109,9 @@
     },
     "commander": {
       "type": "string"
+    },
+    "sellerName": {
+      "type": "string"
     }
   }
 }
