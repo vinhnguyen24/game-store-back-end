@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-07-04T08:09:14.704Z"
+    "x-generation-date": "2025-07-15T03:15:25.074Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -7415,17 +7415,6 @@
                 ],
                 "example": "string or id"
               },
-              "seller": {
-                "oneOf": [
-                  {
-                    "type": "integer"
-                  },
-                  {
-                    "type": "string"
-                  }
-                ],
-                "example": "string or id"
-              },
               "account": {
                 "oneOf": [
                   {
@@ -7437,17 +7426,7 @@
                 ],
                 "example": "string or id"
               },
-              "originalPrice": {
-                "type": "string",
-                "pattern": "^\\d*$",
-                "example": "123456789"
-              },
               "offeredPrice": {
-                "type": "string",
-                "pattern": "^\\d*$",
-                "example": "123456789"
-              },
-              "finalPrice": {
                 "type": "string",
                 "pattern": "^\\d*$",
                 "example": "123456789"
@@ -7461,7 +7440,10 @@
                   "rejected"
                 ]
               },
-              "zaloGroupLink": {
+              "message": {
+                "type": "string"
+              },
+              "messageFromSeller": {
                 "type": "string"
               },
               "locale": {
@@ -9009,17 +8991,6 @@
               }
             }
           },
-          "seller": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "number"
-              },
-              "documentId": {
-                "type": "string"
-              }
-            }
-          },
           "account": {
             "type": "object",
             "properties": {
@@ -9031,17 +9002,7 @@
               }
             }
           },
-          "originalPrice": {
-            "type": "string",
-            "pattern": "^\\d*$",
-            "example": "123456789"
-          },
           "offeredPrice": {
-            "type": "string",
-            "pattern": "^\\d*$",
-            "example": "123456789"
-          },
-          "finalPrice": {
             "type": "string",
             "pattern": "^\\d*$",
             "example": "123456789"
@@ -9055,7 +9016,10 @@
               "rejected"
             ]
           },
-          "zaloGroupLink": {
+          "message": {
+            "type": "string"
+          },
+          "messageFromSeller": {
             "type": "string"
           },
           "createdAt": {
@@ -9120,17 +9084,6 @@
                     }
                   }
                 },
-                "seller": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "number"
-                    },
-                    "documentId": {
-                      "type": "string"
-                    }
-                  }
-                },
                 "account": {
                   "type": "object",
                   "properties": {
@@ -9142,17 +9095,7 @@
                     }
                   }
                 },
-                "originalPrice": {
-                  "type": "string",
-                  "pattern": "^\\d*$",
-                  "example": "123456789"
-                },
                 "offeredPrice": {
-                  "type": "string",
-                  "pattern": "^\\d*$",
-                  "example": "123456789"
-                },
-                "finalPrice": {
                   "type": "string",
                   "pattern": "^\\d*$",
                   "example": "123456789"
@@ -9166,7 +9109,10 @@
                     "rejected"
                   ]
                 },
-                "zaloGroupLink": {
+                "message": {
+                  "type": "string"
+                },
+                "messageFromSeller": {
                   "type": "string"
                 },
                 "createdAt": {

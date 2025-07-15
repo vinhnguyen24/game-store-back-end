@@ -4,10 +4,11 @@
   "info": {
     "singularName": "negotiation",
     "pluralName": "negotiations",
-    "displayName": "negotiation "
+    "displayName": "negotiation ",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "attributes": {
     "buyerZalo": {
@@ -18,23 +19,12 @@
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
     },
-    "seller": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "plugin::users-permissions.user"
-    },
     "account": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::account.account"
     },
-    "originalPrice": {
-      "type": "biginteger"
-    },
     "offeredPrice": {
-      "type": "biginteger"
-    },
-    "finalPrice": {
       "type": "biginteger"
     },
     "statusTransaction": {
@@ -46,7 +36,10 @@
         "rejected"
       ]
     },
-    "zaloGroupLink": {
+    "message": {
+      "type": "string"
+    },
+    "messageFromSeller": {
       "type": "string"
     }
   }

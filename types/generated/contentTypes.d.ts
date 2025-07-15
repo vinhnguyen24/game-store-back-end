@@ -473,12 +473,13 @@ export interface ApiCityThemeCityTheme extends Struct.CollectionTypeSchema {
 export interface ApiNegotiationNegotiation extends Struct.CollectionTypeSchema {
   collectionName: 'negotiations';
   info: {
+    description: '';
     displayName: 'negotiation ';
     pluralName: 'negotiations';
     singularName: 'negotiation';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     account: Schema.Attribute.Relation<'oneToOne', 'api::account.account'>;
@@ -490,27 +491,22 @@ export interface ApiNegotiationNegotiation extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    finalPrice: Schema.Attribute.BigInteger;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::negotiation.negotiation'
     > &
       Schema.Attribute.Private;
+    message: Schema.Attribute.String;
+    messageFromSeller: Schema.Attribute.String;
     offeredPrice: Schema.Attribute.BigInteger;
-    originalPrice: Schema.Attribute.BigInteger;
     publishedAt: Schema.Attribute.DateTime;
-    seller: Schema.Attribute.Relation<
-      'oneToOne',
-      'plugin::users-permissions.user'
-    >;
     statusTransaction: Schema.Attribute.Enumeration<
       ['pending', 'countered', 'accepted', 'rejected']
     >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    zaloGroupLink: Schema.Attribute.String;
   };
 }
 
