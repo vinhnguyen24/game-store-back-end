@@ -31,7 +31,7 @@
       "type": "enumeration",
       "enum": [
         "pending",
-        "countered",
+        "waiting_for_seller",
         "accepted",
         "rejected"
       ]

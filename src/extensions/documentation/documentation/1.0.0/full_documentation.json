@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-07-15T03:15:25.074Z"
+    "x-generation-date": "2025-07-17T16:03:33.717Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -3572,7 +3572,8 @@
                   "pending",
                   "sale",
                   "cancel",
-                  "available"
+                  "available",
+                  "sold"
                 ]
               },
               "images": {
@@ -3757,7 +3758,8 @@
               "pending",
               "sale",
               "cancel",
-              "available"
+              "available",
+              "sold"
             ]
           },
           "images": {
@@ -4578,7 +4580,8 @@
                         "pending",
                         "sale",
                         "cancel",
-                        "available"
+                        "available",
+                        "sold"
                       ]
                     },
                     "images": {
@@ -5780,7 +5783,8 @@
                   "pending",
                   "sale",
                   "cancel",
-                  "available"
+                  "available",
+                  "sold"
                 ]
               },
               "images": {
@@ -7435,7 +7439,7 @@
                 "type": "string",
                 "enum": [
                   "pending",
-                  "countered",
+                  "waiting_for_seller",
                   "accepted",
                   "rejected"
                 ]
@@ -8370,7 +8374,8 @@
                         "pending",
                         "sale",
                         "cancel",
-                        "available"
+                        "available",
+                        "sold"
                       ]
                     },
                     "images": {
@@ -9011,7 +9016,7 @@
             "type": "string",
             "enum": [
               "pending",
-              "countered",
+              "waiting_for_seller",
               "accepted",
               "rejected"
             ]
@@ -9104,7 +9109,7 @@
                   "type": "string",
                   "enum": [
                     "pending",
-                    "countered",
+                    "waiting_for_seller",
                     "accepted",
                     "rejected"
                   ]
@@ -9370,7 +9375,8 @@
                   "pending",
                   "sale",
                   "cancel",
-                  "available"
+                  "available",
+                  "sold"
                 ]
               },
               "images": {

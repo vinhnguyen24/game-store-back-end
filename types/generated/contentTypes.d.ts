@@ -414,7 +414,7 @@ export interface ApiAccountAccount extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     resources: Schema.Attribute.String;
     saleStatus: Schema.Attribute.Enumeration<
-      ['pending', 'sale', 'cancel', 'available']
+      ['pending', 'sale', 'cancel', 'available', 'sold']
     >;
     sellerName: Schema.Attribute.String;
     speed: Schema.Attribute.Integer;
@@ -502,7 +502,7 @@ export interface ApiNegotiationNegotiation extends Struct.CollectionTypeSchema {
     offeredPrice: Schema.Attribute.BigInteger;
     publishedAt: Schema.Attribute.DateTime;
     statusTransaction: Schema.Attribute.Enumeration<
-      ['pending', 'countered', 'accepted', 'rejected']
+      ['pending', 'waiting_for_seller', 'accepted', 'rejected']
     >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
