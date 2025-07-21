@@ -36,11 +36,11 @@
         "rejected"
       ]
     },
-    "message": {
-      "type": "string"
-    },
-    "messageFromSeller": {
-      "type": "string"
+    "negotiation_messages": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::negotiation-message.negotiation-message",
+      "mappedBy": "negotiation"
     }
   }
 }

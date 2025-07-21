@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "negotiation_messages",
+  "info": {
+    "singularName": "negotiation-message",
+    "pluralName": "negotiation-messages",
+    "displayName": "NegotiationMessage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "negotiation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::negotiation.negotiation",
+      "inversedBy": "negotiation_messages"
+    },
+    "sender": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": ["offer", "counter", "accep", "reject", "message"]
+    },
+    "content": {
+      "type": "string"
+    },
+    "price": {
+      "type": "integer"
+    }
+  }
+}

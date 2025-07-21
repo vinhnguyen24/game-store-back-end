@@ -410,6 +410,10 @@ export interface ApiAccountAccount extends Struct.CollectionTypeSchema {
       'api::account.account'
     > &
       Schema.Attribute.Private;
+    negotiation_messages: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::negotiation-message.negotiation-message'
+    >;
     price: Schema.Attribute.BigInteger;
     publishedAt: Schema.Attribute.DateTime;
     resources: Schema.Attribute.String;
@@ -470,6 +474,47 @@ export interface ApiCityThemeCityTheme extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiNegotiationMessageNegotiationMessage
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'negotiation_messages';
+  info: {
+    displayName: 'NegotiationMessage';
+    pluralName: 'negotiation-messages';
+    singularName: 'negotiation-message';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::negotiation-message.negotiation-message'
+    > &
+      Schema.Attribute.Private;
+    negotiation: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::negotiation.negotiation'
+    >;
+    price: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    sender: Schema.Attribute.Relation<
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
+    type: Schema.Attribute.Enumeration<
+      ['offer', 'counter', 'accep', 'reject', 'message']
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiNegotiationNegotiation extends Struct.CollectionTypeSchema {
   collectionName: 'negotiations';
   info: {
@@ -497,8 +542,10 @@ export interface ApiNegotiationNegotiation extends Struct.CollectionTypeSchema {
       'api::negotiation.negotiation'
     > &
       Schema.Attribute.Private;
-    message: Schema.Attribute.String;
-    messageFromSeller: Schema.Attribute.String;
+    negotiation_messages: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::negotiation-message.negotiation-message'
+    >;
     offeredPrice: Schema.Attribute.BigInteger;
     publishedAt: Schema.Attribute.DateTime;
     statusTransaction: Schema.Attribute.Enumeration<
@@ -1066,6 +1113,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::account.account': ApiAccountAccount;
       'api::city-theme.city-theme': ApiCityThemeCityTheme;
+      'api::negotiation-message.negotiation-message': ApiNegotiationMessageNegotiationMessage;
       'api::negotiation.negotiation': ApiNegotiationNegotiation;
       'api::transaction.transaction': ApiTransactionTransaction;
       'plugin::content-releases.release': PluginContentReleasesRelease;

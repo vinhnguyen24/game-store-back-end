@@ -113,6 +113,12 @@
     },
     "sellerName": {
       "type": "string"
+    },
+    "negotiation_messages": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::negotiation-message.negotiation-message",
+      "mappedBy": "sender"
     }
   }
 }
