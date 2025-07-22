@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-07-21T15:26:26.406Z"
+    "x-generation-date": "2025-07-22T07:50:39.616Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -5845,9 +5845,11 @@
                                 "type": "string",
                                 "enum": [
                                   "pending",
-                                  "waiting_for_seller",
                                   "accepted",
-                                  "rejected"
+                                  "rejected",
+                                  "expired",
+                                  "cancelled",
+                                  "completed"
                                 ]
                               },
                               "negotiation_messages": {
@@ -7945,9 +7947,11 @@
                           "type": "string",
                           "enum": [
                             "pending",
-                            "waiting_for_seller",
                             "accepted",
-                            "rejected"
+                            "rejected",
+                            "expired",
+                            "cancelled",
+                            "completed"
                           ]
                         },
                         "negotiation_messages": {
@@ -8387,9 +8391,11 @@
                 "type": "string",
                 "enum": [
                   "pending",
-                  "waiting_for_seller",
                   "accepted",
-                  "rejected"
+                  "rejected",
+                  "expired",
+                  "cancelled",
+                  "completed"
                 ]
               },
               "negotiation_messages": {
@@ -9899,9 +9905,11 @@
                                 "type": "string",
                                 "enum": [
                                   "pending",
-                                  "waiting_for_seller",
                                   "accepted",
-                                  "rejected"
+                                  "rejected",
+                                  "expired",
+                                  "cancelled",
+                                  "completed"
                                 ]
                               },
                               "negotiation_messages": {
@@ -10179,9 +10187,11 @@
             "type": "string",
             "enum": [
               "pending",
-              "waiting_for_seller",
               "accepted",
-              "rejected"
+              "rejected",
+              "expired",
+              "cancelled",
+              "completed"
             ]
           },
           "negotiation_messages": {
@@ -11987,9 +11997,11 @@
                 "type": "string",
                 "enum": [
                   "pending",
-                  "waiting_for_seller",
                   "accepted",
-                  "rejected"
+                  "rejected",
+                  "expired",
+                  "cancelled",
+                  "completed"
                 ]
               },
               "negotiation_messages": {
@@ -13759,9 +13771,11 @@
                           "type": "string",
                           "enum": [
                             "pending",
-                            "waiting_for_seller",
                             "accepted",
-                            "rejected"
+                            "rejected",
+                            "expired",
+                            "cancelled",
+                            "completed"
                           ]
                         },
                         "negotiation_messages": {

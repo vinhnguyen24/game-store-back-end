@@ -31,9 +31,11 @@
       "type": "enumeration",
       "enum": [
         "pending",
-        "waiting_for_seller",
         "accepted",
-        "rejected"
+        "rejected",
+        "expired",
+        "cancelled",
+        "completed"
       ]
     },
     "negotiation_messages": {

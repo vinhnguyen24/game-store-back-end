@@ -549,7 +549,7 @@ export interface ApiNegotiationNegotiation extends Struct.CollectionTypeSchema {
     offeredPrice: Schema.Attribute.BigInteger;
     publishedAt: Schema.Attribute.DateTime;
     statusTransaction: Schema.Attribute.Enumeration<
-      ['pending', 'waiting_for_seller', 'accepted', 'rejected']
+      ['pending', 'accepted', 'rejected', 'expired', 'cancelled', 'completed']
     >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

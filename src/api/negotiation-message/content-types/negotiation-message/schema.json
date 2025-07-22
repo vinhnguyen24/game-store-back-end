@@ -23,7 +23,13 @@
     },
     "type": {
       "type": "enumeration",
-      "enum": ["offer", "counter", "accep", "reject", "message"]
+      "enum": [
+        "offer",
+        "counter",
+        "accep",
+        "reject",
+        "message"
+      ]
     },
     "content": {
       "type": "string"
